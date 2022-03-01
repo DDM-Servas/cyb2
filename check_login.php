@@ -18,16 +18,17 @@
         include("../../params/billing.php");
         $connection = mysqli_connect($db_server,$db_user,$db_pwd,"billing","3306");
 
-        $sql = "SELECT * FROM users WHERE Login='$user' AND PwdHash='$hashpwd' "; 
-        $query = mysqli_query($connection, $sql);
-        $result = mysqli_fetch_all($query);
+        //$sql = "SELECT * FROM users WHERE Login='$user' AND PwdHash='$hashpwd' "; 
+        //$query = mysqli_query($connection, $sql);
+        //$result = mysqli_fetch_all($query);
 
-        #параметрический запросю в процессе доработки
-        //$sql = "SELECT * FROM users WHERE Login=? AND PwdHash=? "; 
-        //$statement = mysqli_prepare($connection,$sql);
-        //mysqli_stmt_bind_param($statement,"ss",$user,$hashpwd);
-        //$cursor = mysqli_stmt_get_result($statement);
-        //$result = mysqli_fetch_all($cursor);
+        #параметрический запрос
+        $sql = "SELECT * FROM users WHERE Login=? AND PwdHash=? "; 
+        $statement = mysqli_prepare($connection,$sql);
+        mysqli_stmt_bind_param($statement,"ss",$user,$hashpwd);
+        mysqli_stmt_execute($statement);
+        $cursor = mysqli_stmt_get_result($statement);
+        $result = mysqli_fetch_all($cursor);
 
         mysqli_close($connection);
 
