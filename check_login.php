@@ -22,7 +22,7 @@
         $query = mysqli_query($connection, $sql);
         $result = mysqli_fetch_all($query);
 
-        #параметрический запрос
+        #параметрический запросю в процессе доработки
         //$sql = "SELECT * FROM users WHERE Login=? AND PwdHash=? "; 
         //$statement = mysqli_prepare($connection,$sql);
         //mysqli_stmt_bind_param($statement,"ss",$user,$hashpwd);
