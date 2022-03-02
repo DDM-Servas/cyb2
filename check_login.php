@@ -33,12 +33,15 @@
         mysqli_close($connection);
 
         //var_dump($result);
-        if (count($result) == 0)
+        if (count($result) == 0){
             echo("Неверный логин или пароль");
+            echo '<meta http-equiv="refresh" content="4; URL=login.php">';
+            die("<br />Будте внимательны при вводе логина и пароля.<br /> Вы будете перенаправлены на страницу авторизации");
+        }
         else {
             echo "<h1>С возвращением, $user </h1>";
             $_SESSION["user"] = $user;
-            echo '<meta http-equiv="refresh" content="2; URL=calc.php">';
+            echo '<meta http-equiv="refresh" content="3; URL=calc.php">';
             die("Доступ разрешен. Вы будете перенаправлены на страницу калькулятора");
         }
     ?>    
