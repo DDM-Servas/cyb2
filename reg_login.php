@@ -34,21 +34,33 @@
 
     if( empty($user)){
         echo ("Поле Имя пользователя не заполнено");
+        echo '<meta http-equiv="refresh" content="4; URL=Reg.php">';
+        die("<br />Заполните имя пользователя и попробуйте еще раз.");
     }
     elseif( empty($pwd1)){
         echo ("Поле пароль не запонено");
+        echo '<meta http-equiv="refresh" content="4; URL=Reg.php">';
+        die("<br />Заполните пароль и попробуйте еще раз.");
     }
     elseif( empty($pwd2)){
         echo ("Поле подтверждение пароля не заполнено");
+        echo '<meta http-equiv="refresh" content="4; URL=Reg.php">';
+        die("<br />Заполните поле подтверждения пароля и попробуйте еще раз");
     }
     elseif( empty($addr)){
         echo ("Поле адрес не запонено");
+        echo '<meta http-equiv="refresh" content="4; URL=Reg.php">';
+        die("<br />Заполните адрес и попробуйте еще раз.");
     }
     elseif( $pwd1 != $pwd2){
         echo ("Введенные пароли не совпадают");
+        echo '<meta http-equiv="refresh" content="4; URL=Reg.php">';
+        die("<br />Заполните поля Пароль и Подтверждение пароля и попробуйте еще раз.");
     } 
     elseif( check_length($pwd2)){
-        echo ("Придумайте более сложный пароль");
+        echo ("Ваш пароль слишком слабый");
+        echo '<meta http-equiv="refresh" content="4; URL=Reg.php">';
+        die("<br />Придумайте более сложный пароль и попробуйте еще раз.");
     } 
     else{
         $connection = mysqli_connect($db_server,$db_user,$db_pwd,"billing");
@@ -62,6 +74,6 @@
 
         session_start();
         $_SESSION["user"] = $user;
-        echo '<meta http-equiv="refresh" content="5; URL=index.html">';
+        echo '<meta http-equiv="refresh" content="4; URL=index.html">';
         die("Добро пожаловать, $user. Вы будете перенаправлены на Главную страницу");
     }
