@@ -12,7 +12,8 @@
         <h1>Введите логин и пароль</h1>
         <input name="user" /> <br />
         <input name="pwd" type="password"> <br />
-        <button>Go!</button>
+        <button>Go!</button> <br />
     </form>
+    <a href="Reg.php">Зарегистрироваться</a> <br /><br />
  </body>
  </html>
