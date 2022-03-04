@@ -12,7 +12,15 @@
             xhr.open("GET",url,false);
             xhr.send();
             var text = xhr.responseText;
-            alert(text);
+            //alert(text);
+            //console.log(text);
+            var stockData = JSON.parse(text);
+            //console.log(stockData);
+            var gazpomValue = stockData[0].value;
+            //console.log(gazpomValue);
+            var now = (new Date()).toTimeString();
+            var msg = now + "Текущий курс акций Газпром" + gazpomValue;
+            document.getElementById("gazprom").innerText = msg;
         }
     </script>
 </head>
@@ -22,5 +30,6 @@
     <h1>По настоящему серьезный биржевой портал</h1>
     Хочешь получить инфу - щелкни кнопку
     <button onclick="GetData();">Хочу получить инфу</button>
+    <div id="gazprom"></div>
 </body>
 </html>
