@@ -9,7 +9,8 @@
 
     $connection = mysqli_connect($db_server,$db_user,$db_pwd,"billing","3306");
     
-    $sql = "INSERT INTO calcs(Number1,Number2,Operation,User) VALUES($x,$y,'minus','$user')";
+    $nowdate = date("d/m/Y");
+    $sql = "INSERT INTO calcs(Number1,Number2,Operation,User,Timestamp) VALUES($x,$y,'minus','$user','$nowdate')";
     
     mysqli_query($connection, $sql);
     

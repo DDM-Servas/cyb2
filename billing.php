@@ -76,7 +76,7 @@
 
             for($i = 0; $i<count($result); $i++){
                 echo("<tr>");
-                echo("<td>".$result[$i][1]."</td><td>".$result[$i][3]."</td><td>".$result[$i][2]."</td>");
+                echo("<td>".$result[$i][1]."</td><td>".$result[$i][3]."</td><td>".$result[$i][2]."</td><td>".$result[$i][5]."</td>");
                 echo("</tr>");
             }
         ?> 
